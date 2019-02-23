@@ -2,7 +2,7 @@
   "name": "snakes_and_ladders_kata",
   "version": "1.0.0",
   "description": "Implementation of the Feature 1 of the Kata",
-  "main": "index.js",
+  "main": "./src/player.js",
   "scripts": {
     "test": "jest"
   },
