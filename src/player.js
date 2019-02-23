@@ -16,19 +16,4 @@ function Player() {
     };
 };
 
-// Player.move(squares) = function(){
-//     if (this.Position + squares <= 100){
-//         return this.Position += squares;
-//     } else if (this.Position + squares > 100){
-//         return this.Position
-//     } else if (this.Position + squares == 100){
-//         return this.Position = 100,
-//                this.Win = True;
-//     }
-// };
-
-// Player.rollDie() = function(){
-//     return Math.floor(Math.random() * 6) + 1
-// };
-
 module.exports = Player;
