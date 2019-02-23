@@ -1,0 +1,20 @@
+{
+  "name": "snakes_and_ladders_kata",
+  "version": "1.0.0",
+  "description": "Implementation of the Feature 1 of the Kata",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "snakes and ladders",
+    "kata",
+    "feature 1",
+    "node"
+  ],
+  "author": "Carlos Garces <carlos.garces.garcia@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.1.0"
+  }
+}
