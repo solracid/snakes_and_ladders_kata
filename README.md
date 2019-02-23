@@ -14,3 +14,29 @@ Tests are implemented with Jest. Other considered testing frameworks were Jasmin
 ## Envision
 Solution is implemented with a single function that acts as a class. This allows to expand its methods with newer features, while already defined methods will be consistent and will pass the tests.
 
+## Install
+The projects runs on `Node.js`. To run it you need to have installed [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [nodejs.org](https://nodejs.org/en/download/)
+
+Open terminal and change working directory to where you want to install it. Run:
+
+```
+https://github.com/solracid/snakes_and_ladders_kata.git
+```
+
+```
+cd snakes-and-ladders-kata
+```
+
+```
+npm install
+```
+
+Once installed, check the game's features are working properly:
+```
+npm run test
+```
+
+Output should look like this one:
+
+![Tests passed](./test_features.png)
+
