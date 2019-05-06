@@ -4,6 +4,6 @@ function game(){
         start: [2, 12],
         end:  [12, 2]
     }
-}
+};
 
 module.exports = game;
