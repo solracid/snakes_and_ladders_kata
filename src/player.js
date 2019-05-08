@@ -7,8 +7,14 @@ function player() {
     this.win = false;
     this.move = function(roll){
         let moveTo = roll + this.position;
-        if (Game.snakesAndLadders.start.indexOf(moveTo) > -1) {
-            this.position = Game.snakesAndLadders.end[Game.snakesAndLadders.start.indexOf(moveTo)];
+        let snakeBite = Game.snakes.get(moveTo)
+        let ladderLift = Game.ladders.get(moveTo)
+        //Snakes are awaiting
+        if (typeof snakeBite !== 'undefined') {
+            this.position = snakeBite;
+        //Ladders are of Help
+        else if (typeof ladderLift !== 'undefined') {
+            this.position = ladderLift;
         } else if (moveTo <= 100) {
             return this.position += roll;
         } else if (moveTo == 100){
