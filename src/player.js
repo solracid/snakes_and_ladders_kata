@@ -4,6 +4,7 @@ var Game = new game;
 
 function player() {
     this.position = 1;
+    this.playOrder;
     this.win = false;
     this.move = function(roll){
         let moveTo = roll + this.position;
