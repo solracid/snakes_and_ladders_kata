@@ -1,9 +1,7 @@
 function game(){
     this.players = 1;
-    this.snakesAndLadders = {
-        start: [2, 12],
-        end:  [12, 2]
-    }
+    this.snakes = new Map([[12,2]]);
+    this.ladders = new Map([2,12]);
 };
 
 module.exports = game;
