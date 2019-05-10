@@ -1,8 +1,21 @@
 const Player = require('./player');
 
+function getMaxRolledDie () {
+    return Math.max.apply(Math, dieRoll);
+};
+
+function getDrawRolledDie (arrRoll, max) {
+    let numMaxDrawRolls;
+    arrRoll = arrRoll.reduce(function(n, val){
+                                return n + (val === max);            
+                            }, 0);
+};
+
+
 function game(){
     this.players = [];
     this.numberOfPlayers;
+    this.firstPlayer;
     this.snakes = new Map([[12,2]]);
     this.ladders = new Map([2,12]);
     this.setNumberOfPlayers = function(num){
@@ -30,10 +43,8 @@ function game(){
         };
         
         //Get the biggest roll and draws if any
-        maxRoll = Math.max.apply(Math, dieRoll);
-        numMaxs = dieRoll.reduce(function(n, val){
-                       return n + (val === maxRoll);            
-                    }, 0);
+        maxRoll = getMaxRolledDie();
+        numMaxs = getDrawRolledDie(dieRoll, maxRoll);
         
         while (numMaxs > 1) {
             // Resolve Draw
@@ -42,6 +53,8 @@ function game(){
             for (i = 0; i < dieRoll.length; i++) {
                 if (dieRoll[i] == maxRoll) {
                     drawPlayers.push(i);
+                } else {
+                    dieRoll[i] = 0;
                 };
             };
             for (i = 0; i < drawPlayers.length; i++) {
@@ -50,9 +63,12 @@ function game(){
         };
         
         //Set the starting play order
+        this.players[dieRoll.findIndex(maxRoll)].playOrder = 1;
+        this.firstPlayer = dieRoll.findIndex(maxRoll);
         
     };
-    
 };
+
+
 
 module.exports = game;

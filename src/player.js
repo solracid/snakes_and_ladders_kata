@@ -14,7 +14,7 @@ function player() {
         if (typeof snakeBite !== 'undefined') {
             this.position = snakeBite;
         //Ladders are of Help
-        else if (typeof ladderLift !== 'undefined') {
+        } else if (typeof ladderLift !== 'undefined') {
             this.position = ladderLift;
         } else if (moveTo <= 100) {
             return this.position += roll;
