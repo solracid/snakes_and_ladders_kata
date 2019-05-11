@@ -1,4 +1,4 @@
-const Player = require('./player');
+var Player = require('./player');
 
 function getMaxRolledDie () {
     return Math.max.apply(Math, dieRoll);
@@ -10,7 +10,6 @@ function getDrawRolledDie (arrRoll, max) {
                                 return n + (val === max);            
                             }, 0);
 };
-
 
 function game(){
     this.players = [];
@@ -45,10 +44,11 @@ function game(){
         //Get the biggest roll and draws if any
         maxRoll = getMaxRolledDie();
         numMaxs = getDrawRolledDie(dieRoll, maxRoll);
+
+        let drawPlayers = [];
         
+        // Resolve Draw
         while (numMaxs > 1) {
-            // Resolve Draw
-            let drawPlayers = [];
             //get the top players
             for (i = 0; i < dieRoll.length; i++) {
                 if (dieRoll[i] == maxRoll) {
@@ -62,10 +62,28 @@ function game(){
             };
         };
         
-        //Set the starting play order
+        //Set the first player
         this.players[dieRoll.findIndex(maxRoll)].playOrder = 1;
         this.firstPlayer = dieRoll.findIndex(maxRoll);
         
+        let auxPlayersOrder = [];
+        let nextPlayerIndex;
+        auxPlayersOrder[0] = this.players[dieRoll.findIndex(maxRoll)]
+
+        //Set others players order
+        for (i = 0; i < numberOfPlayers; i++) {
+            
+            nextPlayerIndex = players.findIndex(auxPlayersOrder[i]) + 1
+
+            if (nextPlayerIndex > numberOfPlayers) {
+                nextPlayerIndex = i - numberOfPlayers;
+            }; 
+
+            auxPlayersOrder[i+1] = this.players(nextPlayerIndex);
+        };
+
+        //Players are arranged in Order
+        this.players = auxPlayersOrder;
     };
 };
 
