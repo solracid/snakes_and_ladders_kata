@@ -20,7 +20,7 @@ describe('Snakes and Ladders - Feature 2', function() {
         })
         test('Snakes go Down, not Up', function(){
             player.position = 2
-            expect(typeof game.snakes.get(2)).toBeUndefined();
+            expect(game.snakes.get(2)).toBeUndefined();
             expect(player.position).toEqual(2);
         })
         test('Ladders go Up', function(){
@@ -30,7 +30,7 @@ describe('Snakes and Ladders - Feature 2', function() {
         })
         test('Ladders go Up, not Down', function(){
             player.position = 12
-            expect(typeof game.ladders.get(12)).toBeUndefined();
+            expect(game.ladders.get(12)).toBeUndefined();
             expect(player.position).toEqual(12);
         })
     })

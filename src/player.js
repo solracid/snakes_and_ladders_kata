@@ -18,7 +18,7 @@ function player() {
             this.position = ladderLift;
         } else if (moveTo <= 100) {
             return this.position += roll;
-        } else if (moveTo == 100){
+        } else if (moveTo == 100) {
             this.position = 100
             return this.win = true;
         }

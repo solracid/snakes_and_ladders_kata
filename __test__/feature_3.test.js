@@ -1,5 +1,5 @@
 var Player = require('../src/player');
-var Game = require('../src/player');
+var Game = require('../src/game');
 
 describe('Snakes and Ladders - Feature 3', function(){
 
@@ -8,7 +8,7 @@ describe('Snakes and Ladders - Feature 3', function(){
     game.setNumberOfPlayers(2);
     
     let mockedDie1 = jest.spyOn(game.players[0], 'rollDie')
-    let mockedDie2 = jest.spyOn(game.players[0], 'rollDie')
+    let mockedDie2 = jest.spyOn(game.players[1], 'rollDie')
   });
 
   test('Players must roll a dice to determine its play order', function(){

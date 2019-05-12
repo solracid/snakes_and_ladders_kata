@@ -16,7 +16,7 @@ function game(){
     this.numberOfPlayers;
     this.firstPlayer;
     this.snakes = new Map([[12,2]]);
-    this.ladders = new Map([2,12]);
+    this.ladders = new Map([[2,12]]);
     this.setNumberOfPlayers = function(num){
         this.numberOfPlayers = num;
         let i;
@@ -86,7 +86,5 @@ function game(){
         this.players = auxPlayersOrder;
     };
 };
-
-
 
 module.exports = game;
