@@ -77,6 +77,7 @@ function game(){
             }; 
 
             auxPlayersOrder[i+1] = this.players(nextPlayerIndex);
+            auxPlayersOrder[i+1].playOrder = nextPlayerIndex + 1;
         };
 
         //Players are arranged in Order
