@@ -24,7 +24,6 @@ function game(){
     };
     this.setPlayOrder = function(){
         let i;
-        let pos = 1;
         let dieRoll = [];
         let maxRoll, numMaxs;
         
@@ -42,9 +41,7 @@ function game(){
         //Get the biggest roll and draws if any
         maxRoll = getMaxRolledDie();
         numMaxs = getDrawRolledDie(dieRoll, maxRoll);
-
-        let drawPlayers = [];
-        
+       
         // Resolve Draw
         while (numMaxs > 1) {
             //get the top players
