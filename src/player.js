@@ -1,7 +1,8 @@
 const board = require('./board');
 
 function player() {
-    this.position = 1;
+    this.name = "";
+    this.position = 0;
     this.playOrder = 0;
     this.win = false;
     this.move = function(roll){
