@@ -14,7 +14,7 @@ function getDrawRolledDie (arrRoll, max) {
 function game(){
     this.players = [];
     this.numberOfPlayers;
-    this.firstPlayer;
+    this.playersTurn;
     this.setNumberOfPlayers = function(num){
         this.numberOfPlayers = num;
         let i;
@@ -57,8 +57,8 @@ function game(){
         };
         
         //Set the first player
-        this.firstPlayer = dieRoll.findIndex(maxRoll);
-        this.players[firstPlayerIndex].playOrder = 1;
+        this.playersTurn = dieRoll.findIndex(maxRoll);
+        this.playersTurn[firstPlayerIndex].playOrder = 1;
         
         let auxPlayersOrder = [];
         let nextPlayerIndex;
@@ -80,6 +80,8 @@ function game(){
         //Players are arranged in Order
         this.players = auxPlayersOrder;
     };
+    
+    this.playTurn = function() {};
 };
 
 module.exports = game;
