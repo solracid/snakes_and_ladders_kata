@@ -3,7 +3,7 @@ var Game = require('../src/game');
 
 describe('Snakes and Ladders - Feature 3', function(){
 
-  beforeAll(function(){
+  beforeEach(function(){
     let game = new Game();
     game.setNumberOfPlayers(2);
     
@@ -25,13 +25,35 @@ describe('Snakes and Ladders - Feature 3', function(){
     mockedDie2.mockImplementation(function(){
         return 1
     });
-    
-    
-
-      
+    expect(game.players[0].playOrder ).toEqual(1);
+    expect(game.players[1].playOrder ).toEqual(2);
 
     mockedDie1.mockRestore()
     mockedDie2.mockRestore()
+  });
+  
+  test('Player 2 rolls first', function(){
+    mockedDie1.mockImplementation(function(){
+        return 1
+    });
+    mockedDie2.mockImplementation(function(){
+        return 6
+    });
+    expect(game.players[0].playOrder ).toEqual(2);
+    expect(game.players[1].playOrder ).toEqual(1);
+
+    mockedDie1.mockRestore()
+    mockedDie2.mockRestore()
+  });
+  
+  test('Player 1 rolls the same as Player 2', function(){
+    let mockedRoll = jest.spyOn(board, 'die')
+    mockedRoll.mockImplementationOnce(function(){Return 6}).mockImplementationOnce(function(){Return 6});
+    
+    game.setPlayOrder();
+    
+    expect(mockedRoll.mock.calls.length).toBeGreaterThan(4);
+    expect(game.players[0].playOrder).not.toBe(game.players[1].playOrder);
   });
 
 });
