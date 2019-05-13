@@ -1,6 +1,4 @@
-const game = require('./game');
-
-var Game = new game;
+const board = require('./board');
 
 function player() {
     this.position = 1;
@@ -8,8 +6,8 @@ function player() {
     this.win = false;
     this.move = function(roll){
         let moveTo = roll + this.position;
-        let snakeBite = Game.snakes.get(moveTo)
-        let ladderLift = Game.ladders.get(moveTo)
+        let snakeBite = board.snakes.get(moveTo)
+        let ladderLift = board.ladders.get(moveTo)
         //Snakes are awaiting
         if (typeof snakeBite !== 'undefined') {
             this.position = snakeBite;
