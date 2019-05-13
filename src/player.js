@@ -21,9 +21,7 @@ function player() {
             return this.win = true;
         }
     };
-    this.rollDie = function(){
-        return Math.floor(Math.random() * 6) + 1
-    };
+    this.rollDie = board.die();
 };
 
 module.exports = player;
