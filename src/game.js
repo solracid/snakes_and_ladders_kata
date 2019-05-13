@@ -15,8 +15,6 @@ function game(){
     this.players = [];
     this.numberOfPlayers;
     this.firstPlayer;
-    this.snakes = new Map([[12,2]]);
-    this.ladders = new Map([[2,12]]);
     this.setNumberOfPlayers = function(num){
         this.numberOfPlayers = num;
         let i;
@@ -36,7 +34,7 @@ function game(){
         
         //Each players rolls a die
         for (i = 0; i < players.length; i++) {
-            if (this.players[i].playOrder !== 0){
+            if (this.players[i].playOrder !== 0) {
                 dieRoll[i] = this.players[i].rollDie();
             };
         };
@@ -52,19 +50,18 @@ function game(){
             //get the top players
             for (i = 0; i < dieRoll.length; i++) {
                 if (dieRoll[i] == maxRoll) {
-                    drawPlayers.push(i);
+                    dieRoll[i] = this.players[i].rollDie();
                 } else {
                     dieRoll[i] = 0;
                 };
             };
-            for (i = 0; i < drawPlayers.length; i++) {
-                this.players[drawPlayers(i)].rollDie
-            };
+            maxRoll = getMaxRolledDie();
+            numMaxs = getDrawRolledDie(dieRoll, maxRoll);
         };
         
         //Set the first player
-        this.players[dieRoll.findIndex(maxRoll)].playOrder = 1;
         this.firstPlayer = dieRoll.findIndex(maxRoll);
+        this.players[firstPlayerIndex].playOrder = 1;
         
         let auxPlayersOrder = [];
         let nextPlayerIndex;
