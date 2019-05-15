@@ -2,6 +2,7 @@ const board = require('./board');
 
 function player() {
     this.name = "";
+    this.number = 0;
     this.position = 0;
     this.playOrder = 0;
     this.win = false;
