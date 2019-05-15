@@ -20,6 +20,7 @@ function game(){
         let i;
         for(i = 0; i < num; ++i) {
             this.players[i] = new Player();
+            this.players[i].number = i;
         }
     };
     this.setPlayOrder = function(){
@@ -81,7 +82,10 @@ function game(){
         this.players = auxPlayersOrder;
     };
     
-    this.playTurn = function() {};
+    this.playTurn = function(player) {
+        this.playerTurn = player.number;
+        player.rollDie();
+    };
 };
 
 module.exports = game;
